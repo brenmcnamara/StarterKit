@@ -1,13 +1,29 @@
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Webpack = require('webpack');
 
-import path from 'path';
+const path = require('path');
 
-export default {
-  debug: true,
+module.exports = {
+  devServer: {
+    contentBase: './dist',
+  },
   devtool: 'inline-source-map',
-  noInfo: false,
   entry: [path.resolve(__dirname, 'src/index')],
-  target: 'web',
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env', 'react', 'flow'],
+            plugins: [require('babel-plugin-transform-object-rest-spread')],
+          },
+        },
+      },
+    ],
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
@@ -16,10 +32,9 @@ export default {
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: 'src/templates/index.ejs',
+      template: 'templates/index.ejs',
     }),
+    new Webpack.NamedModulesPlugin(),
+    new Webpack.HotModuleReplacementPlugin(),
   ],
-  module: {
-    loaders: [{ test: /\.js$/, exclude: /node_modules/, loaders: ['babel'] }],
-  },
 };
