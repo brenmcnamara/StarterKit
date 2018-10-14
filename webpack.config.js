@@ -28,6 +28,7 @@ module.exports = {
             plugins: [
               '@babel/plugin-proposal-object-rest-spread',
               '@babel/plugin-proposal-class-properties',
+              'babel-plugin-relay',
             ],
             presets: [
               '@babel/preset-env',
