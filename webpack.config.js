@@ -1,3 +1,4 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const path = require('path');
@@ -28,12 +29,24 @@ module.exports = {
               '@babel/plugin-proposal-object-rest-spread',
               '@babel/plugin-proposal-class-properties',
             ],
-            presets: ['@babel/preset-env'],
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-flow',
+              '@babel/preset-react',
+            ],
           },
         },
       },
     ],
   },
 
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [
+    new CopyWebpackPlugin([
+      {
+        from: path.join(__dirname, 'node_modules/normalize.css/normalize.css'),
+        to: path.join(__dirname, 'dist/normalize.css'),
+      },
+    ]),
+    new HtmlWebpackPlugin({template: './index.html'}),
+  ],
 };
