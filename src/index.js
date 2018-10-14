@@ -1,14 +1,21 @@
 /* @flow */
 
-import AppContainer from './components/AppContainer.react';
-import React from 'react';
-import ReactDOM from 'react-dom';
+class Pet {
+  type = 'DOG';
 
-import nullthrows from 'nullthrows';
+  constructor(type) {
+    this.type = type;
+  }
+}
 
-window.onload = function() {
-  ReactDOM.render(
-    <AppContainer />,
-    nullthrows(document.getElementById('root')),
-  );
+const milou = new Pet('DOG');
+const fluffy = new Pet('DOG');
+const whiskers = new Pet('CAT');
+
+let pets = {
+  dogs: [milou, fluffy],
 };
+
+pets = {...pets, cats: [whiskers]};
+
+console.log(pets.dogs.map(p => p.type));

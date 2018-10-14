@@ -1,64 +1,16 @@
 {
   "name": "starterkit",
+  "private": true,
   "version": "1.0.0",
   "description": "Starter Kit for Web Apps Using PowerNote",
   "scripts": {
     "build": "webpack",
-    "lint": "eslint src",
-    "start": "webpack-dev-server --open",
-    "watch": "npm run build -- --watch"
+    "clean": "node rimraf build",
+    "start": "webpack-dev-server --open"
   },
   "author": "Brendan McNamara",
   "license": "MIT",
-  "dependencies": {
-    "babel-loader": "^7.1.4",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-flow": "^6.23.0",
-    "babel-preset-react": "^6.24.1",
-    "nullthrows": "^1.0.1",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
-    "react-redux": "^5.0.7",
-    "redux": "^3.6.0"
-  },
-  "devDependencies": {
-    "babel-cli": "6.16.0",
-    "babel-core": "6.17.0",
-    "babel-eslint": "^7.2.1",
-    "babel-register": "6.16.3",
-    "chalk": "^1.1.3",
-    "commander": "^2.9.0",
-    "compression": "1.6.2",
-    "copy-webpack-plugin": "^4.0.1",
-    "cross-env": "3.1.3",
-    "eslint": "3.8.1",
-    "eslint-plugin-flowtype": "^2.30.4",
-    "eslint-plugin-import": "2.0.1",
-    "eslint-plugin-react": "^6.10.3",
-    "eslint-watch": "2.1.14",
-    "flow-bin": "^0.72.0",
-    "html-webpack-plugin": "^3.2.0",
-    "http-server": "^0.9.0",
-    "jest": "^19.0.2",
-    "localtunnel": "1.8.1",
-    "mkdirp": "^0.5.1",
-    "npm-run-all": "3.1.1",
-    "nsp": "2.6.2",
-    "pre-commit": "^1.2.2",
-    "prettier": "^1.12.1",
-    "rimraf": "2.5.4",
-    "webpack": "^4.10.2",
-    "webpack-cli": "^3.0.1",
-    "webpack-dev-middleware": "1.8.4",
-    "webpack-dev-server": "^3.1.4",
-    "webpack-hot-middleware": "2.13.0",
-    "webpack-md5-hash": "0.0.5"
-  },
-  "pre-commit": [
-    "lint",
-    "test"
-  ],
+  "dependencies": {},
   "main": "howToWatch.js",
   "repository": {
     "type": "git",
@@ -67,5 +19,16 @@
   "bugs": {
     "url": "https://github.com/alfigureitout/StarterKit/issues"
   },
-  "homepage": "https://github.com/alfigureitout/StarterKit#readme"
+  "homepage": "https://github.com/alfigureitout/StarterKit#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
+  }
 }
